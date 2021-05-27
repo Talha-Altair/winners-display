@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles3.css') }}">
+    <!-- google font  -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dosis:wght@500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+HK:wght@300&display=swap" rel="stylesheet">
+  
+
+    <title>FEATUREPRENEUR</title>
+</head>
+
+<body>
+    
+    <H1 style="z-index: 3;"><img src="https://cdn-images-1.medium.com/max/1200/1*KDBIIes8gD5itYIGKgVzmw.png" style="width: 60px;"><b>FEATUREPRENEUR</b></H1>
+
+    <!-- CARD-  -->
+    <div class="center">
+
+        <div class="card profile-card-2">
+            <div class="general">
+                <h1 id="ftpr">MENTOR OF THE WEEK!</h1>
+                <P class="winner-name">{{val}}</P>
+                <a href="/lteam"><button type="button" class="btn btn-danger">Congratulations</button></a>
+
+            </div>
+        </div>
+        <!-- CARD-END -->
+
+
+ 
+        <script src="{{url_for('static', filename='index.js')}}"></script>
+</body>
+
+</html>
