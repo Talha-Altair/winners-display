@@ -14,9 +14,9 @@ app = Flask(__name__)
 # db = cluster["SpinTime"]
 # col = db["winners"]
 
-app.config['MONGO_URI'] = config('MONGO_URI') #Create .env first
-mongo                   = PyMongo(app)
-col                     = mongo.db.col
+# app.config['MONGO_URI'] = config('MONGO_URI') #Create .env first
+# mongo                   = PyMongo(app)
+# col                     = mongo.db.col
 
 
 @app.route('/') #Defining Root Node
