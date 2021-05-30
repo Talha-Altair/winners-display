@@ -21,7 +21,7 @@ col                     = mongo.db.col
 
 @app.route('/') #Defining Root Node
 def winners():
-    return render_template('winners.html')  
+    return render_template('intro.html')  
 
 @app.route('/details',methods=["GET", "POST"])
 def details():
