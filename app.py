@@ -6,22 +6,27 @@ from decouple import config
 from bson.json_util import dumps
 import logging
 from pprint import pprint
+import pymongo
+from pymongo import MongoClient
 
 app = Flask(__name__)
 
-# cluster = MongoClient('mongodb+srv://Altair:Altair@cluster0.xvmvm.mongodb.net/myFirstDatabase?retryWrites=true&w=majority')
+def get_json():
 
-# db = cluster["SpinTime"]
-# col = db["winners"]
+    json_file = open("winners.json")
+    json_data = json.load(json_file)
 
-# app.config['MONGO_URI'] = config('MONGO_URI') #Create .env first
-# mongo                   = PyMongo(app)
-# col                     = mongo.db.col
+    return json_data
+
+def store_data(json_data):
+
+    with open("winners.json", 'w') as outfile:
+        json.dump(json_data, outfile)
 
 
 @app.route('/') #Defining Root Node
 def winners():
-    return render_template('intro.html')  
+    return render_template('winners.html')  
 
 @app.route('/details',methods=["GET", "POST"])
 def details():
@@ -35,95 +40,106 @@ def details():
        tool = request.form.get("tool") 
        writer = request.form.get("writer")
        jr_fpr = request.form.get("jr_fpr")
-       results={1:fpr, 2: ffpr,3:learner,4:lteam,5:mdev,6:mentor,7:tool,8:writer,9:jr_fpr}
+       results={
+            "fpr": fpr,
+            "ffpr": ffpr,
+            "learner": learner,
+            "writer": writer,
+            "mdev": mdev,
+            "mentor": mentor,
+            "lteam": lteam,
+            "tool": tool,
+            "jr_fpr": jr_fpr
+        }
        print(results)
-    # col.insert_many([
-    #  { "Title":"fpr","winner": fpr},
-    #  { "Title":"ffpr", "winner": ffpr},
-    #  { "Title":"learner","winner": learner},
-    #  { "Title":"lteam", "winner": lteam},
-    #  { "Title":"mdev","winner": mdev},
-    #  { "Title":"mentor", "winner": mentor},
-    #  { "Title":"tool","winner": tool},
-    #  { "Title":"writer", "winner": writer},
-    #  { "Title":"jr_fpr", "winner": jr_fpr}
-    # ])
+    store_data(results)
+
     return render_template('intro.html')
 
 @app.route('/fpr',methods=["GET", "POST"])
 def fpr():
-    # for x in col.find({},{ "_id": 0, "Title": 1, "winner": 1 }):
-    #     if x['Title']=="fpr":
-    #         val=x['winner']
 
-    return render_template('ftpr.html')
+    json = get_json()
+    
+    val = json["fpr"]
+
+    return render_template('ftpr.html',val=val)
 
 @app.route('/jr_fpr',methods=["GET", "POST"])
 def jr_fpr():
-    # for x in col.find({},{ "_id": 0, "Title": 1, "winner": 1 }):
-    #     if x['Title']=="jr_fpr":
-    #         val=x['winner']
 
-    return render_template('jr_fpr.html')
+    json = get_json()
+    
+    val = json["jr_fpr"]
+
+    return render_template('jr_fpr.html',val=val)
 
 @app.route('/ffpr',methods=["GET", "POST"])
 def ffpr():
-    # for x in col.find({},{ "_id": 0, "Title": 1, "winner": 1 }):
-    #     if x['Title']=="ffpr":
-    #         val=x['winner']
 
-    return render_template('ftpr-girl.html') 
+    json = get_json()
+    
+    val = json["ffpr"]
+
+    return render_template('ftpr-girl.html',val=val) 
 
 @app.route('/learner',methods=["GET", "POST"])
 def learner():
-    # for x in col.find({},{ "_id": 0, "Title": 1, "winner": 1 }):
-    #     if x['Title']=="learner":
-    #         val=x['winner']
 
-    return render_template('learner.html')        
+    json = get_json()
+    
+    val = json["learner"]
+
+    return render_template('learner.html',val=val)        
 
 @app.route('/lteam',methods=["GET", "POST"])
 def lteam():
-    # for x in col.find({},{ "_id": 0, "Title": 1, "winner": 1 }):
-    #     if x['Title']=="lteam":
-    #         val=x['winner']
 
-    return render_template('learningteam.html')
+    json = get_json()
+    
+    val = json["lteam"]
+ 
+    return render_template('learningteam.html',val=val)
 
 @app.route('/tool',methods=["GET", "POST"])
 def tool():
-    # for x in col.find({},{ "_id": 0, "Title": 1, "winner": 1 }):
-    #     if x['Title']=="tool":
-    #         val=x['winner']
 
-    return render_template('toolresearcher.html')
+    json = get_json()
+    
+    val = json["tool"]
+ 
+    return render_template('toolresearcher.html',val=val)
 
 @app.route('/writer',methods=["GET", "POST"])
 def writer():
-    # for x in col.find({},{ "_id": 0, "Title": 1, "winner": 1 }):
-    #     if x['Title']=="writer":
-    #         val=x['winner']
 
-    return render_template('writer.html')
+    json = get_json()
+    
+    val = json["writer"]
+ 
+    return render_template('writer.html',val=val)
 
 @app.route('/memdev',methods=["GET", "POST"])
 def memdev():
-    # for x in col.find({},{ "_id": 0, "Title": 1, "winner": 1 }):
-    #     if x['Title']=="mdev":
-    #         val=x['winner']
 
-    return render_template('memedev.html')
+    json = get_json()
+    
+    val = json["mdev"]
+ 
+    return render_template('memedev.html',val=val)
 
 @app.route('/mentor',methods=["GET", "POST"])
 def mentor():
-    # for x in col.find({},{ "_id": 0, "Title": 1, "winner": 1 }):
-    #     if x['Title']=="mentor":
-    #         val=x['winner']
 
-    return render_template('mentor.html')
+    json = get_json()
+    
+    val = json["mentor"]
+ 
+    return render_template('mentor.html',val=val)
 
 @app.route('/end')
 def end():
+ 
     return render_template('done.html')  
 
 
