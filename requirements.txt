@@ -1,8 +1,7 @@
+Click
 Flask
-flask-mongoengine
 gunicorn
+itsdangerous
 Jinja2
-pymongo
-python-dotenv
-SQLAlchemy
+MarkupSafe
 Werkzeug

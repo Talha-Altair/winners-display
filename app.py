@@ -1,13 +1,5 @@
 from flask import Flask , request, render_template, jsonify
 import json
-from flask_pymongo import PyMongo
-import os
-from decouple import config
-from bson.json_util import dumps
-import logging
-from pprint import pprint
-import pymongo
-from pymongo import MongoClient
 
 app = Flask(__name__)
 
