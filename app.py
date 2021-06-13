@@ -32,6 +32,7 @@ def details():
        tool = request.form.get("tool") 
        writer = request.form.get("writer")
        jr_fpr = request.form.get("jr_fpr")
+       intern_name = request.form.get("intern")
        results={
             "fpr": fpr,
             "ffpr": ffpr,
@@ -41,7 +42,8 @@ def details():
             "mentor": mentor,
             "lteam": lteam,
             "tool": tool,
-            "jr_fpr": jr_fpr
+            "jr_fpr": jr_fpr,
+            "intern_name" :intern_name 
         }
        print(results)
     store_data(results)
@@ -128,6 +130,15 @@ def mentor():
     val = json["mentor"]
  
     return render_template('mentor.html',val=val)
+
+@app.route('/intern',methods=["GET", "POST"])
+def intern_name():
+
+    json = get_json()
+    
+    val = json["intern_name"]
+ 
+    return render_template('intern.html',val=val)
 
 @app.route('/end')
 def end():
