@@ -3,26 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://example.com/posts/</loc>
+    <loc>https://talha-altair.github.io/winners-display/posts/</loc>
     <lastmod>2021-06-16T14:15:55+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/posts/post/</loc>
+    <loc>https://talha-altair.github.io/winners-display/posts/post/</loc>
     <lastmod>2021-06-16T14:15:55+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/</loc>
+    <loc>https://talha-altair.github.io/winners-display/</loc>
     <lastmod>2021-06-16T14:15:55+05:30</lastmod>
   </url>
   
   <url>
-    <loc>https://example.com/categories/</loc>
+    <loc>https://talha-altair.github.io/winners-display/categories/</loc>
   </url>
   
   <url>
-    <loc>https://example.com/tags/</loc>
+    <loc>https://talha-altair.github.io/winners-display/tags/</loc>
   </url>
   
 </urlset>
