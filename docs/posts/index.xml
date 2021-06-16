@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Weekly Winners</title>
+    <link>https://example.com/posts/</link>
+    <description>Recent content in Posts on Weekly Winners</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 16 Jun 2021 14:15:55 +0530</lastBuildDate>
+    
+	<atom:link href="https://example.com/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Use Case</title>
+      <link>https://example.com/posts/post/</link>
+      <pubDate>Wed, 16 Jun 2021 14:15:55 +0530</pubDate>
+      
+      <guid>https://example.com/posts/post/</guid>
+      <description>Pakka Talha Altair </description>
+    </item>
+    
+  </channel>
+</rss>
