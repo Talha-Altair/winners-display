@@ -25,24 +25,16 @@ def details():
     if request.method == "POST":
        fpr = request.form.get("fpr")
        ffpr = request.form.get("ffpr")
-       learner = request.form.get("learner")
-       lteam = request.form.get("lteam")
-       mdev = request.form.get("mdev")
        mentor = request.form.get("mentor")
        tool = request.form.get("tool") 
        writer = request.form.get("writer")
-       jr_fpr = request.form.get("jr_fpr")
        intern_name = request.form.get("intern")
        results={
             "fpr": fpr,
             "ffpr": ffpr,
-            "learner": learner,
             "writer": writer,
-            "mdev": mdev,
             "mentor": mentor,
-            "lteam": lteam,
             "tool": tool,
-            "jr_fpr": jr_fpr,
             "intern_name" :intern_name 
         }
        print(results)
@@ -59,15 +51,6 @@ def fpr():
 
     return render_template('ftpr.html',val=val)
 
-@app.route('/jr_fpr',methods=["GET", "POST"])
-def jr_fpr():
-
-    json = get_json()
-    
-    val = json["jr_fpr"]
-
-    return render_template('jr_fpr.html',val=val)
-
 @app.route('/ffpr',methods=["GET", "POST"])
 def ffpr():
 
@@ -77,23 +60,6 @@ def ffpr():
 
     return render_template('ftpr-girl.html',val=val) 
 
-@app.route('/learner',methods=["GET", "POST"])
-def learner():
-
-    json = get_json()
-    
-    val = json["learner"]
-
-    return render_template('learner.html',val=val)        
-
-@app.route('/lteam',methods=["GET", "POST"])
-def lteam():
-
-    json = get_json()
-    
-    val = json["lteam"]
- 
-    return render_template('learningteam.html',val=val)
 
 @app.route('/tool',methods=["GET", "POST"])
 def tool():
@@ -113,14 +79,6 @@ def writer():
  
     return render_template('writer.html',val=val)
 
-@app.route('/memdev',methods=["GET", "POST"])
-def memdev():
-
-    json = get_json()
-    
-    val = json["mdev"]
- 
-    return render_template('memedev.html',val=val)
 
 @app.route('/mentor',methods=["GET", "POST"])
 def mentor():
