@@ -46,7 +46,7 @@ def details():
             "intern_name" :intern_name 
         }
        print(results)
-    store_data(results)
+       store_data(results)
 
     return render_template('intro.html')
 
