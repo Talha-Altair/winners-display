@@ -15,7 +15,6 @@ def store_data(json_data):
     with open("winners.json", 'w') as outfile:
         json.dump(json_data, outfile)
 
-
 @app.route('/') #Defining Root Node
 def winners():
     return render_template('winners.html')  
@@ -23,6 +22,7 @@ def winners():
 @app.route('/details',methods=["GET", "POST"])
 def details():
     if request.method == "POST":
+
        fpr = request.form.get("fpr")
        ffpr = request.form.get("ffpr")
        tool = request.form.get("tool") 
