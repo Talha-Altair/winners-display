@@ -25,7 +25,6 @@ def details():
     if request.method == "POST":
        fpr = request.form.get("fpr")
        ffpr = request.form.get("ffpr")
-       mentor = request.form.get("mentor")
        tool = request.form.get("tool") 
        writer = request.form.get("writer")
        intern_name = request.form.get("intern")
@@ -33,7 +32,6 @@ def details():
             "fpr": fpr,
             "ffpr": ffpr,
             "writer": writer,
-            "mentor": mentor,
             "tool": tool,
             "intern_name" :intern_name 
         }
@@ -78,16 +76,6 @@ def writer():
     val = json["writer"]
  
     return render_template('writer.html',val=val)
-
-
-@app.route('/mentor',methods=["GET", "POST"])
-def mentor():
-
-    json = get_json()
-    
-    val = json["mentor"]
- 
-    return render_template('mentor.html',val=val)
 
 @app.route('/intern',methods=["GET", "POST"])
 def intern_name():
